@@ -3,6 +3,7 @@ chrome.omnibox.setDefaultSuggestion({
 });
 
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
+  console.log(`onInputChanged: {text: ${text}}`);
   suggest([
     {content: text + " one", description: "the first entry provided by the extension"},
     {content: text + " two", description: "the second entry provided by the extension"}
@@ -10,6 +11,7 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
 });
 
 chrome.omnibox.onInputEntered.addListener((text, disposition) => {
+  console.log(`onInputEntered: {disposition: ${disposition} text: ${text}}`);
   switch (disposition) {
     case "currentTab":
       chrome.tabs.update({url: text});
@@ -21,4 +23,8 @@ chrome.omnibox.onInputEntered.addListener((text, disposition) => {
       chrome.tabs.create({url: text, active: false});
       break;
   }
+});
+
+chrome.omnibox.onInputCancelled.addListener(() => {
+  console.log("onInputCancelled");
 });
