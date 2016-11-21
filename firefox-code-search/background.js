@@ -7,7 +7,11 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
 });
 
 chrome.omnibox.onInputEntered.addListener((text, disposition) => {
-  chrome.tabs.create({url: text});
+  let url = text;
+  if (!text.startsWith("https://dxr.mozilla.org")) {
+    url = `https://dxr.mozilla.org/mozilla-central/search?q=${text}+-path%3Aobj-&redirect=false`
+  }
+  chrome.tabs.create({url});
 });
 
 function searchGithub(text, suggest) {
