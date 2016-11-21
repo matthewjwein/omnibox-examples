@@ -1,0 +1,10 @@
+{
+  "name": "Simple Omnibox Example",
+  "description" : "To use, type '#' plus a search term into the url bar.",
+  "version": "1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "omnibox": { "keyword" : "#" },
+  "manifest_version": 2
+}

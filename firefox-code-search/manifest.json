@@ -1,0 +1,13 @@
+{
+  "name": "Mozilla Code Search",
+  "description" : "To use, type 'dxr' plus a search term into the url bar.",
+  "version": "1.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "omnibox": { "keyword" : "dxr" },
+  "manifest_version": 2,
+  "permissions": [
+    "<all_urls>"
+  ]
+}
